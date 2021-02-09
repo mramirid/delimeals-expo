@@ -1,27 +1,25 @@
 import React, { FC } from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { StyleSheet, FlatList, Text, View } from "react-native";
 
-import { CategoriesScreenNavProp } from "../navigation/MealsNavigator/types";
+import { CATEGORIES } from "../data/categories";
 
-const CategoriesScreen: FC = () => {
-  const navigation = useNavigation<CategoriesScreenNavProp>();
-  return (
-    <View style={styles.screen}>
-      <Text>The Categories Screen</Text>
-      <Button
-        title="GOTO MEALS"
-        onPress={() => navigation.navigate("CategoryMealsScreen")}
-      />
-    </View>
-  );
-};
+const CategoriesScreen: FC = () => (
+  <FlatList
+    numColumns={2}
+    data={CATEGORIES}
+    renderItem={(data) => (
+      <View style={styles.gridItem}>
+        <Text>{data.item.title}</Text>
+      </View>
+    )}
+  />
+);
 
 const styles = StyleSheet.create({
-  screen: {
+  gridItem: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    margin: 15,
+    height: 150,
   },
 });
 
