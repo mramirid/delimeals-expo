@@ -9,13 +9,17 @@ interface CategoryItemProps {
   category: Category;
 }
 
-const CategoryItem: FC<CategoryItemProps> = (props) => {
+const CategoryItem: FC<CategoryItemProps> = ({ category }) => {
   const navigation = useNavigation<CategoriesScreenNavProp>();
   return (
     <TouchableOpacity
       style={styles.gridItem}
-      onPress={() => navigation.navigate("CategoryMealsScreen")}>
-      <Text>{props.category.title}</Text>
+      onPress={() => {
+        navigation.navigate("CategoryMealsScreen", {
+          categoryId: category.id,
+        });
+      }}>
+      <Text>{category.title}</Text>
     </TouchableOpacity>
   );
 };

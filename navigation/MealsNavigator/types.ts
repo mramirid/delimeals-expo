@@ -3,7 +3,7 @@ import { StackNavigationProp } from "@react-navigation/stack";
 
 export type MealsStackParamList = {
   CategoriesScreen: undefined;
-  CategoryMealsScreen: undefined;
+  CategoryMealsScreen: { categoryId: string };
   MealDetailScreen: undefined;
 };
 
