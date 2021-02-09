@@ -13,6 +13,10 @@ const MealDetailScreen: FC = () => {
         title="GO BACK TO CATEGORIES"
         onPress={() => navigation.popToTop()}
       />
+      <Button
+        title="GO BACK TO MEALS"
+        onPress={() => navigation.replace("CategoryMealsScreen")}
+      />
     </View>
   );
 };
