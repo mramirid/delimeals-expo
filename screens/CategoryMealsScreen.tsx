@@ -13,7 +13,7 @@ const CategoryMealsScreen: FC = () => {
         title="GOTO DETAIL MEAL"
         onPress={() => navigation.navigate("MealDetailScreen")}
       />
-      <Button title="GOTO BACK" onPress={() => navigation.pop()} />
+      <Button title="GO BACK" onPress={() => navigation.pop()} />
     </View>
   );
 };
