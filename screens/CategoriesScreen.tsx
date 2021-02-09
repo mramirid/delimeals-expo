@@ -11,7 +11,7 @@ const CategoriesScreen: FC = () => {
       <Text>The Categories Screen</Text>
       <Button
         title="GOTO MEALS"
-        onPress={() => navigation.navigate("CategoryMealsScreen")}
+        onPress={() => navigation.push("CategoriesScreen")}
       />
     </View>
   );
