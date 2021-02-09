@@ -1,24 +1,25 @@
 import React, { FC } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import CategoriesScreen from "../screens/CategoriesScreen";
-import CategoryMealsScreen from "../screens/CategoryMealsScreen";
-import MealDetailScreen from "../screens/MealDetailScreen";
+import { MealsStackParamList } from "./types";
+import CategoriesScreen from "../../screens/CategoriesScreen";
+import CategoryMealsScreen from "../../screens/CategoryMealsScreen";
+import MealDetailScreen from "../../screens/MealDetailScreen";
 
-const MealsStackNavigator = createStackNavigator();
+const MealsStackNavigator = createStackNavigator<MealsStackParamList>();
 
 const MealsNavigator: FC = () => (
   <MealsStackNavigator.Navigator>
     <MealsStackNavigator.Screen
-      name="Categories"
+      name="CategoriesScreen"
       component={CategoriesScreen}
     />
     <MealsStackNavigator.Screen
-      name="Category Meals"
+      name="CategoryMealsScreen"
       component={CategoryMealsScreen}
     />
     <MealsStackNavigator.Screen
-      name="Meal Detail"
+      name="MealDetailScreen"
       component={MealDetailScreen}
     />
   </MealsStackNavigator.Navigator>
