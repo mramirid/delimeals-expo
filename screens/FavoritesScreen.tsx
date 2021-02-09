@@ -1,10 +1,8 @@
 import React, { FC } from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-interface FavoritesScreenProps {}
-
-const FavoritesScreen: FC<FavoritesScreenProps> = (props) => (
-  <View>
+const FavoritesScreen: FC = () => (
+  <View style={styles.screen}>
     <Text>The Favorites Screen</Text>
   </View>
 );

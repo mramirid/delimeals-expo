@@ -1,10 +1,8 @@
 import React, { FC } from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-interface CategoriesScreenProps {}
-
-const CategoriesScreen: FC<CategoriesScreenProps> = (props) => (
-  <View>
+const CategoriesScreen: FC = () => (
+  <View style={styles.screen}>
     <Text>The Categories Screen</Text>
   </View>
 );

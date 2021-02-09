@@ -1,10 +1,8 @@
 import React, { FC } from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-interface MealDetailScreenProps {}
-
-const MealDetailScreen: FC<MealDetailScreenProps> = (props) => (
-  <View>
+const MealDetailScreen: FC = () => (
+  <View style={styles.screen}>
     <Text>The Meal Detail Screen</Text>
   </View>
 );
