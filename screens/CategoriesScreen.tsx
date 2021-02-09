@@ -1,26 +1,20 @@
 import React, { FC } from "react";
-import { StyleSheet, FlatList, Text, View } from "react-native";
+import { FlatList } from "react-native";
+import { StackNavigationOptions } from "@react-navigation/stack";
 
 import { CATEGORIES } from "../data/categories";
+import CategoryItem from "../components/CategoryItem";
 
 const CategoriesScreen: FC = () => (
   <FlatList
     numColumns={2}
     data={CATEGORIES}
-    renderItem={(data) => (
-      <View style={styles.gridItem}>
-        <Text>{data.item.title}</Text>
-      </View>
-    )}
+    renderItem={(data) => <CategoryItem category={data.item} />}
   />
 );
 
-const styles = StyleSheet.create({
-  gridItem: {
-    flex: 1,
-    margin: 15,
-    height: 150,
-  },
-});
+export const screenOptions: StackNavigationOptions = {
+  headerTitle: "Meal Categories",
+};
 
 export default CategoriesScreen;

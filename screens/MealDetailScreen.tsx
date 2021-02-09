@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { StackNavigationOptions } from "@react-navigation/stack";
 
 import { MealDetailScreenNavProp } from "../navigation/MealsNavigator/types";
 
@@ -28,5 +29,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 });
+
+export const screenOptions: StackNavigationOptions = {
+  headerTitle: "Detail Meal",
+};
 
 export default MealDetailScreen;
