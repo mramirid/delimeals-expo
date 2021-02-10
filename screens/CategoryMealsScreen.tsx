@@ -18,8 +18,8 @@ const CategoryMealsScreen: FC = () => {
   });
 
   useLayoutEffect(() => {
-    navigation.setOptions({ headerTitle: params.category.id });
-  }, [navigation, params.category.id]);
+    navigation.setOptions({ headerTitle: params.category.title });
+  }, [navigation, params.category.title]);
 
   return (
     <View style={styles.screen}>
@@ -29,7 +29,9 @@ const CategoryMealsScreen: FC = () => {
         renderItem={(data) => (
           <MealItem
             meal={data.item}
-            onClick={() => navigation.navigate("MealDetailScreen")}
+            onClick={() => {
+              navigation.navigate("MealDetailScreen", { meal: data.item });
+            }}
           />
         )}
       />

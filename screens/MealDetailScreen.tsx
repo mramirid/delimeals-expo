@@ -1,15 +1,35 @@
 import React, { FC, useLayoutEffect } from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import { HeaderButtons, Item } from "react-navigation-header-buttons";
 
-import { MealDetailScreenNavProp } from "../navigation/MealsNavigator/types";
+import {
+  MealDetailScreenNavProp,
+  MealDetailScreenRouteProp,
+} from "../navigation/MealsNavigator/types";
+import AppHeaderButton from "../components/AppHeaderButton";
 
 const MealDetailScreen: FC = () => {
   const navigation = useNavigation<MealDetailScreenNavProp>();
+  const { params } = useRoute<MealDetailScreenRouteProp>();
 
   useLayoutEffect(() => {
-    navigation.setOptions({ headerTitle: "Detail Meal" });
-  }, [navigation]);
+    navigation.setOptions({
+      headerTitle: params.meal.title,
+      headerRight: () => (
+        <HeaderButtons HeaderButtonComponent={AppHeaderButton}>
+          <Item
+            title="Favorite"
+            iconName="star"
+            onPress={() => {
+              // eslint-disable-next-line no-console
+              console.log("Marked as favorite");
+            }}
+          />
+        </HeaderButtons>
+      ),
+    });
+  }, [navigation, params.meal.title]);
 
   return (
     <View style={styles.screen}>
@@ -18,12 +38,7 @@ const MealDetailScreen: FC = () => {
         title="GO BACK TO CATEGORIES"
         onPress={() => navigation.popToTop()}
       />
-      <Button
-        title="GO BACK TO MEALS"
-        onPress={() =>
-          navigation.replace("CategoryMealsScreen", { categoryId: "c1" })
-        }
-      />
+      <Button title="GO BACK TO MEALS" onPress={() => null} />
     </View>
   );
 };

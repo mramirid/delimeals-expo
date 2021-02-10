@@ -2,11 +2,12 @@ import { RouteProp } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 
 import Category from "../../models/Category";
+import Meal from "../../models/Meal";
 
 export type MealsStackParamList = {
   CategoriesScreen: undefined;
   CategoryMealsScreen: { category: Category };
-  MealDetailScreen: undefined;
+  MealDetailScreen: { meal: Meal };
 };
 
 export type CategoriesScreenRouteProp = RouteProp<
