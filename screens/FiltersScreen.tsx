@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { StackNavigationOptions } from "@react-navigation/stack";
 
 const FiltersScreen: FC = () => (
   <View style={styles.screen}>
@@ -15,9 +14,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 });
-
-export const screenOptions: StackNavigationOptions = {
-  headerTitle: "Filters",
-};
 
 export default FiltersScreen;
