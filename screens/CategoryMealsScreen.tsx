@@ -1,7 +1,6 @@
-import React, { FC } from "react";
+import React, { FC, useLayoutEffect } from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { StackNavigationOptions } from "@react-navigation/stack";
 
 import {
   CategoryMealsScreenNavProp,
@@ -16,6 +15,12 @@ const CategoryMealsScreen: FC = () => {
   const category = CATEGORIES.find((category) => {
     return category.id === route.params.categoryId;
   });
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerTitle: category?.title,
+    });
+  }, [category?.title, navigation, route.params.categoryId]);
 
   return (
     <View style={styles.screen}>
@@ -37,9 +42,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 });
-
-export const screenOptions: StackNavigationOptions = {
-  headerTitle: "Meals",
-};
 
 export default CategoryMealsScreen;

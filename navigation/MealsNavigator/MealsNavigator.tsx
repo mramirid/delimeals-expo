@@ -7,15 +7,9 @@ import {
 
 import { MealsStackParamList } from "./types";
 import Colors from "../../constants/colors";
-import CategoriesScreen, {
-  screenOptions as categoriesScreenOptions,
-} from "../../screens/CategoriesScreen";
-import CategoryMealsScreen, {
-  screenOptions as categoryMealsScreenOptions,
-} from "../../screens/CategoryMealsScreen";
-import MealDetailScreen, {
-  screenOptions as mealDetailScreenOptions,
-} from "../../screens/MealDetailScreen";
+import CategoriesScreen from "../../screens/CategoriesScreen";
+import CategoryMealsScreen from "../../screens/CategoryMealsScreen";
+import MealDetailScreen from "../../screens/MealDetailScreen";
 
 const MealsStackNavigator = createStackNavigator<MealsStackParamList>();
 
@@ -31,17 +25,14 @@ const MealsNavigator: FC = () => (
     <MealsStackNavigator.Screen
       name="CategoriesScreen"
       component={CategoriesScreen}
-      options={categoriesScreenOptions}
     />
     <MealsStackNavigator.Screen
       name="CategoryMealsScreen"
       component={CategoryMealsScreen}
-      options={categoryMealsScreenOptions}
     />
     <MealsStackNavigator.Screen
       name="MealDetailScreen"
       component={MealDetailScreen}
-      options={mealDetailScreenOptions}
     />
   </MealsStackNavigator.Navigator>
 );

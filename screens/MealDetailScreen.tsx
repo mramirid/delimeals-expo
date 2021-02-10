@@ -1,12 +1,18 @@
-import React, { FC } from "react";
+import React, { FC, useLayoutEffect } from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { StackNavigationOptions } from "@react-navigation/stack";
 
 import { MealDetailScreenNavProp } from "../navigation/MealsNavigator/types";
 
 const MealDetailScreen: FC = () => {
   const navigation = useNavigation<MealDetailScreenNavProp>();
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerTitle: "Detail Meal",
+    });
+  }, [navigation]);
+
   return (
     <View style={styles.screen}>
       <Text>The Meal Detail Screen</Text>
@@ -16,7 +22,9 @@ const MealDetailScreen: FC = () => {
       />
       <Button
         title="GO BACK TO MEALS"
-        onPress={() => navigation.replace("CategoryMealsScreen")}
+        onPress={() =>
+          navigation.replace("CategoryMealsScreen", { categoryId: "c1" })
+        }
       />
     </View>
   );
@@ -29,9 +37,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 });
-
-export const screenOptions: StackNavigationOptions = {
-  headerTitle: "Detail Meal",
-};
 
 export default MealDetailScreen;
