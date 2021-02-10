@@ -3,9 +3,12 @@ import React, { FC } from "react";
 import AppLoading from "expo-app-loading";
 import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
+import { enableScreens } from "react-native-screens";
 
 import Fonts from "./constants/fonts";
 import AppNavigator from "./navigation/AppNavigator";
+
+enableScreens();
 
 const App: FC = () => {
   const [isFontsLoaded] = useFonts({

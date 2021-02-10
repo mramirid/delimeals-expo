@@ -21,10 +21,7 @@ const mealsStackscreenOptions: StackNavigationOptions = {
 };
 
 const MealsNavigator: FC = () => (
-  <MealsStackNavigator.Navigator
-    initialRouteName="MealDetailScreen"
-    mode="modal"
-    screenOptions={mealsStackscreenOptions}>
+  <MealsStackNavigator.Navigator screenOptions={mealsStackscreenOptions}>
     <MealsStackNavigator.Screen
       name="CategoriesScreen"
       component={CategoriesScreen}
