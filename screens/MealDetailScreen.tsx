@@ -8,9 +8,7 @@ const MealDetailScreen: FC = () => {
   const navigation = useNavigation<MealDetailScreenNavProp>();
 
   useLayoutEffect(() => {
-    navigation.setOptions({
-      headerTitle: "Detail Meal",
-    });
+    navigation.setOptions({ headerTitle: "Detail Meal" });
   }, [navigation]);
 
   return (
