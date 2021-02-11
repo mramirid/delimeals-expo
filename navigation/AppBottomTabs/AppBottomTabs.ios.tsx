@@ -5,33 +5,34 @@ import {
 } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 
-import { HomeBottomTabParamList } from "./types";
+import { AppBottomTabParamList } from "./types";
 import MealsStackNavigator from "../MealsStack/MealsStack";
 import FavoritesScreen from "../../screens/FavoritesScreen";
 import Colors from "../../constants/colors";
 
-const Tab = createBottomTabNavigator<HomeBottomTabParamList>();
+const Tab = createBottomTabNavigator<AppBottomTabParamList>();
 
 const tabBarOptions: BottomTabBarOptions = {
   activeTintColor: Colors.Accent,
 };
 
-const HomeBottomTabs: FC = () => (
+const AppBottomTabs: FC = () => (
   <Tab.Navigator tabBarOptions={tabBarOptions}>
     <Tab.Screen
-      name="Meals"
+      name="MealsStack"
       component={MealsStackNavigator}
       options={{
+        tabBarLabel: "Meals",
         tabBarIcon: (props) => (
           <Ionicons name="ios-restaurant" size={25} color={props.color} />
         ),
       }}
     />
     <Tab.Screen
-      name="Favorites"
+      name="FavoritesStack"
       component={FavoritesScreen}
       options={{
-        tabBarLabel: "Favorites!",
+        tabBarLabel: "Favorites",
         tabBarIcon: (props) => (
           <Ionicons name="star" size={25} color={props.color} />
         ),
@@ -40,4 +41,4 @@ const HomeBottomTabs: FC = () => (
   </Tab.Navigator>
 );
 
-export default HomeBottomTabs;
+export default AppBottomTabs;

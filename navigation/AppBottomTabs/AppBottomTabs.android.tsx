@@ -2,21 +2,20 @@ import React, { FC } from "react";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import { MaterialIcons } from "@expo/vector-icons";
 
-import { HomeBottomTabParamList } from "./types";
-import MealsStackNavigator from "../MealsStack/MealsStack";
-import FavoritesScreen from "../../screens/FavoritesScreen";
+import { AppBottomTabParamList } from "./types";
 import Colors from "../../constants/colors";
+import MealsStack from "../MealsStack/MealsStack";
+import FavoritesStack from "../FavoritesStack/FavoritesStack";
 
-const Tab = createMaterialBottomTabNavigator<HomeBottomTabParamList>();
+const Tab = createMaterialBottomTabNavigator<AppBottomTabParamList>();
 
-const HomeBottomTabs: FC = () => (
-  <Tab.Navigator
-    activeColor="white"
-    barStyle={{ backgroundColor: Colors.Primary }}>
+const AppBottomTabs: FC = () => (
+  <Tab.Navigator sceneAnimationEnabled activeColor="white" shifting>
     <Tab.Screen
-      name="Meals"
-      component={MealsStackNavigator}
+      name="MealsStack"
+      component={MealsStack}
       options={{
+        tabBarLabel: "Meals",
         tabBarColor: Colors.Primary,
         tabBarIcon: (props) => (
           <MaterialIcons name="restaurant" size={25} color={props.color} />
@@ -24,9 +23,10 @@ const HomeBottomTabs: FC = () => (
       }}
     />
     <Tab.Screen
-      name="Favorites"
-      component={FavoritesScreen}
+      name="FavoritesStack"
+      component={FavoritesStack}
       options={{
+        tabBarLabel: "Favorites",
         tabBarColor: Colors.Accent,
         tabBarIcon: (props) => (
           <MaterialIcons name="star" size={25} color={props.color} />
@@ -36,4 +36,4 @@ const HomeBottomTabs: FC = () => (
   </Tab.Navigator>
 );
 
-export default HomeBottomTabs;
+export default AppBottomTabs;

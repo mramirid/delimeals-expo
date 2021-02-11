@@ -1,5 +1,4 @@
 import React, { FC, useLayoutEffect } from "react";
-import { View, StyleSheet, FlatList } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 import {
@@ -7,7 +6,7 @@ import {
   CategoryMealsScreenRouteProp,
 } from "../navigation/MealsStack/types";
 import { MEALS } from "../data/meals";
-import MealItem from "../components/MealItem";
+import MealList from "../components/MealList/MealList";
 
 const CategoryMealsScreen: FC = () => {
   const navigation = useNavigation<CategoryMealsScreenNavProp>();
@@ -22,31 +21,13 @@ const CategoryMealsScreen: FC = () => {
   }, [navigation, params.category.title]);
 
   return (
-    <View style={styles.screen}>
-      <FlatList
-        style={{ width: "100%" }}
-        data={meals}
-        renderItem={(data) => (
-          <MealItem
-            meal={data.item}
-            onClick={() => {
-              navigation.navigate("MealDetailScreen", { meal: data.item });
-            }}
-          />
-        )}
-      />
-    </View>
+    <MealList
+      meals={meals}
+      onMealClicked={(meal) => {
+        navigation.navigate("MealDetailScreen", { meal });
+      }}
+    />
   );
 };
-
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    paddingHorizontal: 15,
-    paddingTop: 15,
-  },
-});
 
 export default CategoryMealsScreen;

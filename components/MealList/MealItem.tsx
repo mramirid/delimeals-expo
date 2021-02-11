@@ -11,9 +11,9 @@ import {
   ImageBackground,
 } from "react-native";
 
-import Fonts from "../constants/fonts";
-import Colors from "../constants/colors";
-import Meal from "../models/Meal";
+import Fonts from "../../constants/fonts";
+import Colors from "../../constants/colors";
+import Meal from "../../models/Meal";
 
 interface MealItemProps {
   meal: Meal;
