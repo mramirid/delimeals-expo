@@ -1,11 +1,11 @@
 import React, { FC } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 
-import MealsNavigator from "./MealsNavigator/MealsNavigator";
+import HomeBottomTabs from "./HomeBottomTabs/HomeBottomTabs";
 
 const AppNavigator: FC = () => (
   <NavigationContainer>
-    <MealsNavigator />
+    <HomeBottomTabs />
   </NavigationContainer>
 );
 

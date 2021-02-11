@@ -6,7 +6,7 @@ import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import {
   MealDetailScreenNavProp,
   MealDetailScreenRouteProp,
-} from "../navigation/MealsNavigator/types";
+} from "../navigation/MealsStack/types";
 import AppHeaderButton from "../components/AppHeaderButton";
 
 const MealDetailScreen: FC = () => {

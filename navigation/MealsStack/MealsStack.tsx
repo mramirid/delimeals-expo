@@ -11,30 +11,21 @@ import CategoriesScreen from "../../screens/CategoriesScreen";
 import CategoryMealsScreen from "../../screens/CategoryMealsScreen";
 import MealDetailScreen from "../../screens/MealDetailScreen";
 
-const MealsStackNavigator = createStackNavigator<MealsStackParamList>();
+const Stack = createStackNavigator<MealsStackParamList>();
 
-const mealsStackscreenOptions: StackNavigationOptions = {
+const stackScreenOptions: StackNavigationOptions = {
   headerTintColor: Platform.OS === "android" ? "white" : undefined,
   headerStyle: {
     backgroundColor: Platform.OS === "android" ? Colors.Primary : undefined,
   },
 };
 
-const MealsNavigator: FC = () => (
-  <MealsStackNavigator.Navigator screenOptions={mealsStackscreenOptions}>
-    <MealsStackNavigator.Screen
-      name="CategoriesScreen"
-      component={CategoriesScreen}
-    />
-    <MealsStackNavigator.Screen
-      name="CategoryMealsScreen"
-      component={CategoryMealsScreen}
-    />
-    <MealsStackNavigator.Screen
-      name="MealDetailScreen"
-      component={MealDetailScreen}
-    />
-  </MealsStackNavigator.Navigator>
+const MealsStack: FC = () => (
+  <Stack.Navigator screenOptions={stackScreenOptions}>
+    <Stack.Screen name="CategoriesScreen" component={CategoriesScreen} />
+    <Stack.Screen name="CategoryMealsScreen" component={CategoryMealsScreen} />
+    <Stack.Screen name="MealDetailScreen" component={MealDetailScreen} />
+  </Stack.Navigator>
 );
 
-export default MealsNavigator;
+export default MealsStack;

@@ -5,7 +5,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import {
   CategoryMealsScreenNavProp,
   CategoryMealsScreenRouteProp,
-} from "../navigation/MealsNavigator/types";
+} from "../navigation/MealsStack/types";
 import { MEALS } from "../data/meals";
 import MealItem from "../components/MealItem";
 
