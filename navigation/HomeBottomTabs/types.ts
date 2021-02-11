@@ -1,4 +1,4 @@
-export type MealsFavParamList = {
+export type HomeBottomTabParamList = {
   Meals: undefined;
   Favorites: undefined;
 };

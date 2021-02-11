@@ -5,12 +5,12 @@ import {
 } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 
-import { MealsFavParamList } from "./types";
+import { HomeBottomTabParamList } from "./types";
 import MealsStackNavigator from "../MealsStack/MealsStack";
 import FavoritesScreen from "../../screens/FavoritesScreen";
 import Colors from "../../constants/colors";
 
-const Tab = createBottomTabNavigator<MealsFavParamList>();
+const Tab = createBottomTabNavigator<HomeBottomTabParamList>();
 
 const tabBarOptions: BottomTabBarOptions = {
   activeTintColor: Colors.Accent,
