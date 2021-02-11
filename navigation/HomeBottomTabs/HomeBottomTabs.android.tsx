@@ -10,7 +10,9 @@ import Colors from "../../constants/colors";
 const Tab = createMaterialBottomTabNavigator<HomeBottomTabParamList>();
 
 const HomeBottomTabs: FC = () => (
-  <Tab.Navigator activeColor="white" shifting>
+  <Tab.Navigator
+    activeColor="white"
+    barStyle={{ backgroundColor: Colors.Primary }}>
     <Tab.Screen
       name="Meals"
       component={MealsStackNavigator}
