@@ -18,14 +18,7 @@ const MealDetailScreen: FC = () => {
       headerTitle: params.meal.title,
       headerRight: () => (
         <HeaderButtons HeaderButtonComponent={AppHeaderButton}>
-          <Item
-            title="Favorite"
-            iconName="star"
-            onPress={() => {
-              // eslint-disable-next-line no-console
-              console.log("Marked as favorite");
-            }}
-          />
+          <Item title="Favorite" iconName="star" onPress={() => null} />
         </HeaderButtons>
       ),
     });

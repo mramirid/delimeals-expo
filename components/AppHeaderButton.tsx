@@ -4,14 +4,14 @@ import {
   HeaderButton,
   HeaderButtonProps,
 } from "react-navigation-header-buttons";
-import { Ionicons } from "@expo/vector-icons";
+import { MaterialIcons, Ionicons } from "@expo/vector-icons";
 
 import Colors from "../constants/colors";
 
 const AppHeaderButton: FC<HeaderButtonProps> = (props) => (
   <HeaderButton
     {...props}
-    IconComponent={Ionicons}
+    IconComponent={Platform.OS === "android" ? MaterialIcons : Ionicons}
     iconSize={23}
     color={Platform.OS === "android" ? "white" : Colors.Primary}
   />

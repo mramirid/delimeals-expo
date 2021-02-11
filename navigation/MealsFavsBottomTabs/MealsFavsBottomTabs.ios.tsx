@@ -1,23 +1,19 @@
 import React, { FC } from "react";
-import {
-  BottomTabBarOptions,
-  createBottomTabNavigator,
-} from "@react-navigation/bottom-tabs";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 
-import { AppBottomTabParamList } from "./types";
+import { MealsFavsBottomTabsParamList } from "./types";
 import MealsStackNavigator from "../MealsStack/MealsStack";
 import FavoritesScreen from "../../screens/FavoritesScreen";
 import Colors from "../../constants/colors";
 
-const Tab = createBottomTabNavigator<AppBottomTabParamList>();
-
-const tabBarOptions: BottomTabBarOptions = {
-  activeTintColor: Colors.Accent,
-};
+const Tab = createBottomTabNavigator<MealsFavsBottomTabsParamList>();
 
 const AppBottomTabs: FC = () => (
-  <Tab.Navigator tabBarOptions={tabBarOptions}>
+  <Tab.Navigator
+    tabBarOptions={{
+      activeTintColor: Colors.Accent,
+    }}>
     <Tab.Screen
       name="MealsStack"
       component={MealsStackNavigator}
