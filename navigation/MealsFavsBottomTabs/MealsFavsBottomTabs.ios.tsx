@@ -6,6 +6,7 @@ import { MealsFavsBottomTabsParamList } from "./types";
 import MealsStackNavigator from "../MealsStack/MealsStack";
 import FavoritesScreen from "../../screens/FavoritesScreen";
 import Colors from "../../constants/colors";
+import Fonts from "../../constants/fonts";
 
 const Tab = createBottomTabNavigator<MealsFavsBottomTabsParamList>();
 
@@ -13,6 +14,9 @@ const AppBottomTabs: FC = () => (
   <Tab.Navigator
     tabBarOptions={{
       activeTintColor: Colors.Accent,
+      labelStyle: {
+        fontFamily: Fonts.OpenSansBold,
+      },
     }}>
     <Tab.Screen
       name="MealsStack"
