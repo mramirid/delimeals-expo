@@ -1,17 +1,25 @@
 import { CompositeNavigationProp, RouteProp } from "@react-navigation/native";
+import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
+import { DrawerNavigationProp } from "@react-navigation/drawer";
 import { StackNavigationProp } from "@react-navigation/stack";
 
 import Meal from "../../models/Meal";
-import { FavoritesStackNavProp } from "../MealsFavsBottomTabs/types";
+import { AppDrawerParamList } from "../AppDrawer/types";
+import { MealsFavsBottomTabsParamList } from "../MealsFavsBottomTabs/types";
 
 export type FavoritesStackParamList = {
   FavoritesScreen: undefined;
   MealDetailScreen: { meal: Meal };
 };
 
+type ParentNavigatorsType = CompositeNavigationProp<
+  BottomTabNavigationProp<MealsFavsBottomTabsParamList>,
+  DrawerNavigationProp<AppDrawerParamList>
+>;
+
 export type FavoritesScreenNavProp = CompositeNavigationProp<
   StackNavigationProp<FavoritesStackParamList, "FavoritesScreen">,
-  FavoritesStackNavProp
+  ParentNavigatorsType
 >;
 
 export type MealDetailScreenRouteProp = RouteProp<
@@ -20,5 +28,5 @@ export type MealDetailScreenRouteProp = RouteProp<
 >;
 export type MealDetailScreenNavProp = CompositeNavigationProp<
   StackNavigationProp<FavoritesStackParamList, "MealDetailScreen">,
-  FavoritesStackNavProp
+  ParentNavigatorsType
 >;

@@ -1,7 +1,8 @@
+import { DrawerNavigationProp } from "@react-navigation/drawer";
 import { CompositeNavigationProp } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 
-import { FiltersStackNavProp } from "../AppDrawer/types";
+import { AppDrawerParamList } from "../AppDrawer/types";
 
 export type FiltersStackParamList = {
   FiltersScreen: undefined;
@@ -9,5 +10,5 @@ export type FiltersStackParamList = {
 
 export type FiltersScreenNavProp = CompositeNavigationProp<
   StackNavigationProp<FiltersStackParamList, "FiltersScreen">,
-  FiltersStackNavProp
+  DrawerNavigationProp<AppDrawerParamList>
 >;
