@@ -19,9 +19,7 @@ const CategoriesScreen: FC = () => {
           <Item
             title="Menu"
             iconName="menu"
-            onPress={() => {
-              navigation.toggleDrawer();
-            }}
+            onPress={navigation.toggleDrawer}
           />
         </HeaderButtons>
       ),
