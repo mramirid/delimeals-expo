@@ -27,10 +27,16 @@ export default class Meal {
     public isVegetarian: boolean,
   ) {}
 
+  /**
+   * Uppercase complexity string
+   */
   get upperComplexity(): string {
     return Complexity[this.complexity].toUpperCase();
   }
 
+  /**
+   * Uppercase affordability string
+   */
   get upperAffordability(): string {
     return Affordability[this.affordability].toUpperCase();
   }

@@ -2,7 +2,6 @@ import React, { FC, JSXElementConstructor } from "react";
 import {
   View,
   StyleSheet,
-  Text,
   TouchableOpacityProps,
   TouchableNativeFeedbackProps,
   Platform,
@@ -14,6 +13,8 @@ import {
 import Fonts from "../../constants/fonts";
 import Colors from "../../constants/colors";
 import Meal from "../../models/Meal";
+import BodyText from "../Text/BodyText";
+import HeadingText from "../Text/HeadingText";
 
 interface MealItemProps {
   meal: Meal;
@@ -39,16 +40,16 @@ const MealItem: FC<MealItemProps> = ({ meal, onClick }) => {
               source={{ uri: meal.imageUrl }}
               style={styles.bgImage}>
               <View style={styles.titleContainer}>
-                <Text style={styles.title} numberOfLines={1}>
+                <HeadingText style={styles.title} numberOfLines={1}>
                   {meal.title}
-                </Text>
+                </HeadingText>
               </View>
             </ImageBackground>
           </View>
           <View style={{ ...styles.mealRow, ...styles.mealDetail }}>
-            <Text>{meal.duration}m</Text>
-            <Text>{meal.upperComplexity}</Text>
-            <Text>{meal.upperAffordability}</Text>
+            <BodyText>{meal.duration}m</BodyText>
+            <BodyText>{meal.upperComplexity}</BodyText>
+            <BodyText>{meal.upperAffordability}</BodyText>
           </View>
         </View>
       </Touchable>
