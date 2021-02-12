@@ -4,9 +4,11 @@ import AppLoading from "expo-app-loading";
 import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
 import { enableScreens } from "react-native-screens";
+import { Provider } from "react-redux";
 
 import Fonts from "./constants/fonts";
 import AppNavigator from "./navigation/AppNavigator";
+import store from "./store";
 
 enableScreens();
 
@@ -23,7 +25,9 @@ const App: FC = () => {
   return (
     <>
       <StatusBar style="light" />
-      <AppNavigator />
+      <Provider store={store}>
+        <AppNavigator />
+      </Provider>
     </>
   );
 };

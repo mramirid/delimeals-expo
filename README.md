@@ -5,7 +5,7 @@ Cookbook app made with React Native (In-memory database)
 <br>
 
 <p align="center">
-  <img src="https://i.ibb.co/B3drxmm/photo-2020-09-19-16-09-01.jpg" alt="SS" height="450" border="0">
+  <img src="https://i.ibb.co/zxvcNjc/Screenshot-20210212-204956-Expo-Go.jpg" alt="SS" height="450" border="0">
 </p>
 
 <br>

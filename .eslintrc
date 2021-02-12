@@ -18,6 +18,7 @@
     "plugin:jest/recommended"
   ],
   "rules": {
+    "@typescript-eslint/explicit-module-boundary-types": "off",
     "no-console": 1,
     "prettier/prettier": 2,
     "linebreak-style": "off",
