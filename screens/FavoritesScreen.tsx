@@ -4,8 +4,9 @@ import { HeaderButtons, Item } from "react-navigation-header-buttons";
 
 import { FavoritesScreenNavProp } from "../navigation/FavoritesStack/types";
 import MealList from "../components/MealList/MealList";
-import { MEALS } from "../data/meals";
 import AppHeaderButton from "../components/AppHeaderButton";
+import { useAppSelector } from "../store";
+import { selectFavoriteMeals } from "../store/reducers/meals";
 
 const FavoritesScreen: FC = () => {
   const navigation = useNavigation<FavoritesScreenNavProp>();
@@ -25,9 +26,7 @@ const FavoritesScreen: FC = () => {
     });
   }, [navigation]);
 
-  const favMeals = MEALS.filter((meal) => {
-    return meal.id === "m1" || meal.id === "m2";
-  });
+  const favMeals = useAppSelector(selectFavoriteMeals);
 
   return (
     <MealList

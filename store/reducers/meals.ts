@@ -22,6 +22,12 @@ export const mealsSlice = createSlice({
   reducers: {},
 });
 
-export const selectMealsState = (state: RootState) => state.meals;
+export const selectMeals = (state: RootState) => state.meals.meals;
+export const selectFilteredMeals = (state: RootState) => {
+  return state.meals.filteredMeals;
+};
+export const selectFavoriteMeals = (state: RootState) => {
+  return state.meals.favoriteMeals;
+};
 
 export default mealsSlice.reducer;

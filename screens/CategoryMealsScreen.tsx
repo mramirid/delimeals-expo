@@ -5,14 +5,16 @@ import {
   CategoryMealsScreenNavProp,
   CategoryMealsScreenRouteProp,
 } from "../navigation/MealsStack/types";
-import { MEALS } from "../data/meals";
 import MealList from "../components/MealList/MealList";
+import { useAppSelector } from "../store";
+import { selectFilteredMeals } from "../store/reducers/meals";
 
 const CategoryMealsScreen: FC = () => {
   const navigation = useNavigation<CategoryMealsScreenNavProp>();
   const { params } = useRoute<CategoryMealsScreenRouteProp>();
 
-  const meals = MEALS.filter((meal) => {
+  const meals = useAppSelector(selectFilteredMeals);
+  const displayedMeals = meals.filter((meal) => {
     return meal.categoryIds.indexOf(params.category.id) >= 0;
   });
 
@@ -22,7 +24,7 @@ const CategoryMealsScreen: FC = () => {
 
   return (
     <MealList
-      meals={meals}
+      meals={displayedMeals}
       onMealClicked={(meal) => {
         navigation.navigate("MealDetailScreen", { meal });
       }}
