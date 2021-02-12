@@ -19,6 +19,7 @@
   ],
   "rules": {
     "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
     "no-console": 1,
     "prettier/prettier": 2,
     "linebreak-style": "off",

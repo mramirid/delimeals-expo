@@ -1,15 +1,16 @@
-import Meal, { Affordability, Complexity } from "../models/Meal";
+import Meal, { Affordability, Complexity } from "../types/Meal";
 
-export const MEALS = [
-  new Meal(
-    "m1",
-    ["c1", "c2"],
-    "Spaghetti with Tomato Sauce",
-    Affordability.Affordable,
-    Complexity.Simple,
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg/800px-Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg",
-    20,
-    [
+export const MEALS: Meal[] = [
+  {
+    id: "m1",
+    categoryIds: ["c1", "c2"],
+    title: "Spaghetti with Tomato Sauce",
+    affordability: Affordability.Affordable,
+    complexity: Complexity.Simple,
+    imageUrl:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg/800px-Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg",
+    duration: 20,
+    ingredients: [
       "4 Tomatoes",
       "1 Tablespoon of Olive Oil",
       "1 Onion",
@@ -17,7 +18,7 @@ export const MEALS = [
       "Spices",
       "Cheese (optional)",
     ],
-    [
+    steps: [
       "Cut the tomatoes and the onion into small pieces.",
       "Boil some water - add salt to it once it boils.",
       "Put the spaghetti into the boiling water - they should be done in about 10 to 12 minutes.",
@@ -26,45 +27,47 @@ export const MEALS = [
       "The sauce will be done once the spaghetti are.",
       "Feel free to add some cheese on top of the finished dish.",
     ],
-    false,
-    true,
-    true,
-    true,
-  ),
-  new Meal(
-    "m2",
-    ["c2"],
-    "Toast Hawaii",
-    Affordability.Affordable,
-    Complexity.Simple,
-    "https://cdn.pixabay.com/photo/2018/07/11/21/51/toast-3532016_1280.jpg",
-    10,
-    [
+    isGlutenFree: false,
+    isLactoseFree: true,
+    isVegan: true,
+    isVegetarian: true,
+  },
+  {
+    id: "m2",
+    categoryIds: ["c2"],
+    title: "Toast Hawaii",
+    affordability: Affordability.Affordable,
+    complexity: Complexity.Simple,
+    imageUrl:
+      "https://cdn.pixabay.com/photo/2018/07/11/21/51/toast-3532016_1280.jpg",
+    duration: 10,
+    ingredients: [
       "1 Slice White Bread",
       "1 Slice Ham",
       "1 Slice Pineapple",
       "1-2 Slices of Cheese",
       "Butter",
     ],
-    [
+    steps: [
       "Butter one side of the white bread",
       "Layer ham, the pineapple and cheese on the white bread",
       "Bake the toast for round about 10 minutes in the oven at 200°C",
     ],
-    false,
-    false,
-    false,
-    false,
-  ),
-  new Meal(
-    "m3",
-    ["c3"],
-    "Classic Hamburger",
-    Affordability.Pricey,
-    Complexity.Simple,
-    "https://cdn.pixabay.com/photo/2014/10/23/18/05/burger-500054_1280.jpg",
-    45,
-    [
+    isGlutenFree: false,
+    isLactoseFree: false,
+    isVegan: false,
+    isVegetarian: false,
+  },
+  {
+    id: "m3",
+    categoryIds: ["c3"],
+    title: "Classic Hamburger",
+    affordability: Affordability.Pricey,
+    complexity: Complexity.Simple,
+    imageUrl:
+      "https://cdn.pixabay.com/photo/2014/10/23/18/05/burger-500054_1280.jpg",
+    duration: 45,
+    ingredients: [
       "300g Cattle Hack",
       "1 Tomato",
       "1 Cucumber",
@@ -72,27 +75,28 @@ export const MEALS = [
       "Ketchup",
       "2 Burger Buns",
     ],
-    [
+    steps: [
       "Form 2 patties",
       "Fry the patties for c. 4 minutes on each side",
       "Quickly fry the buns for c. 1 minute on each side",
       "Bruch buns with ketchup",
       "Serve burger with tomato, cucumber and onion",
     ],
-    false,
-    false,
-    false,
-    true,
-  ),
-  new Meal(
-    "m4",
-    ["c4"],
-    "Wiener Schnitzel",
-    Affordability.Luxurious,
-    Complexity.Challenging,
-    "https://cdn.pixabay.com/photo/2018/03/31/19/29/schnitzel-3279045_1280.jpg",
-    60,
-    [
+    isGlutenFree: false,
+    isLactoseFree: false,
+    isVegan: false,
+    isVegetarian: true,
+  },
+  {
+    id: "m4",
+    categoryIds: ["c4"],
+    title: "Wiener Schnitzel",
+    affordability: Affordability.Luxurious,
+    complexity: Complexity.Challenging,
+    imageUrl:
+      "https://cdn.pixabay.com/photo/2018/03/31/19/29/schnitzel-3279045_1280.jpg",
+    duration: 60,
+    ingredients: [
       "8 Veal Cutlets",
       "4 Eggs",
       "200g Bread Crumbs",
@@ -102,7 +106,7 @@ export const MEALS = [
       "Salt",
       "Lemon Slices",
     ],
-    [
+    steps: [
       "Tenderize the veal to about 2–4mm, and salt on both sides.",
       "On a flat plate, stir the eggs briefly with a fork.",
       "Lightly coat the cutlets in flour then dip into the egg, and finally, coat in breadcrumbs.",
@@ -111,20 +115,21 @@ export const MEALS = [
       "Remove, and drain on kitchen paper. Fry the parsley in the remaining oil and drain.",
       "Place the schnitzels on awarmed plate and serve garnishedwith parsley and slices of lemon.",
     ],
-    false,
-    false,
-    false,
-    false,
-  ),
-  new Meal(
-    "m5",
-    ["c2", "c5", "c10"],
-    "Salad with Smoked Salmon",
-    Affordability.Luxurious,
-    Complexity.Simple,
-    "https://cdn.pixabay.com/photo/2016/10/25/13/29/smoked-salmon-salad-1768890_1280.jpg",
-    15,
-    [
+    isGlutenFree: false,
+    isLactoseFree: false,
+    isVegan: false,
+    isVegetarian: false,
+  },
+  {
+    id: "m5",
+    categoryIds: ["c2", "c5", "c10"],
+    title: "Salad with Smoked Salmon",
+    affordability: Affordability.Luxurious,
+    complexity: Complexity.Simple,
+    imageUrl:
+      "https://cdn.pixabay.com/photo/2016/10/25/13/29/smoked-salmon-salad-1768890_1280.jpg",
+    duration: 15,
+    ingredients: [
       "Arugula",
       "Lamb's Lettuce",
       "Parsley",
@@ -135,27 +140,28 @@ export const MEALS = [
       "Olive Oil",
       "Salt and Pepper",
     ],
-    [
+    steps: [
       "Wash and cut salad and herbs",
       "Dice the salmon",
       "Process mustard, vinegar and olive oil into a dessing",
       "Prepare the salad",
       "Add salmon cubes and dressing",
     ],
-    true,
-    false,
-    true,
-    true,
-  ),
-  new Meal(
-    "m6",
-    ["c6", "c10"],
-    "Delicious Orange Mousse",
-    Affordability.Affordable,
-    Complexity.Hard,
-    "https://cdn.pixabay.com/photo/2017/05/01/05/18/pastry-2274750_1280.jpg",
-    240,
-    [
+    isGlutenFree: true,
+    isLactoseFree: false,
+    isVegan: true,
+    isVegetarian: true,
+  },
+  {
+    id: "m6",
+    categoryIds: ["c6", "c10"],
+    title: "Delicious Orange Mousse",
+    affordability: Affordability.Affordable,
+    complexity: Complexity.Hard,
+    imageUrl:
+      "https://cdn.pixabay.com/photo/2017/05/01/05/18/pastry-2274750_1280.jpg",
+    duration: 240,
+    ingredients: [
       "4 Sheets of Gelatine",
       "150ml Orange Juice",
       "80g Sugar",
@@ -163,7 +169,7 @@ export const MEALS = [
       "200g Cream",
       "Orange Peel",
     ],
-    [
+    steps: [
       "Dissolve gelatine in pot",
       "Add orange juice and sugar",
       "Take pot off the stove",
@@ -174,20 +180,21 @@ export const MEALS = [
       "Cool down again for at least 4 hours",
       "Serve with orange peel",
     ],
-    true,
-    false,
-    true,
-    false,
-  ),
-  new Meal(
-    "m7",
-    ["c7"],
-    "Pancakes",
-    Affordability.Affordable,
-    Complexity.Simple,
-    "https://cdn.pixabay.com/photo/2018/07/10/21/23/pancake-3529653_1280.jpg",
-    20,
-    [
+    isGlutenFree: true,
+    isLactoseFree: false,
+    isVegan: true,
+    isVegetarian: false,
+  },
+  {
+    id: "m7",
+    categoryIds: ["c7"],
+    title: "Pancakes",
+    affordability: Affordability.Affordable,
+    complexity: Complexity.Simple,
+    imageUrl:
+      "https://cdn.pixabay.com/photo/2018/07/10/21/23/pancake-3529653_1280.jpg",
+    duration: 20,
+    ingredients: [
       "1 1/2 Cups all-purpose Flour",
       "3 1/2 Teaspoons Baking Powder",
       "1 Teaspoon Salt",
@@ -196,26 +203,27 @@ export const MEALS = [
       "1 Egg",
       "3 Tablespoons Butter, melted",
     ],
-    [
+    steps: [
       "In a large bowl, sift together the flour, baking powder, salt and sugar.",
       "Make a well in the center and pour in the milk, egg and melted butter; mix until smooth.",
       "Heat a lightly oiled griddle or frying pan over medium high heat.",
       "Pour or scoop the batter onto the griddle, using approximately 1/4 cup for each pancake. Brown on both sides and serve hot.",
     ],
-    true,
-    false,
-    true,
-    false,
-  ),
-  new Meal(
-    "m8",
-    ["c8"],
-    "Creamy Indian Chicken Curry",
-    Affordability.Pricey,
-    Complexity.Challenging,
-    "https://cdn.pixabay.com/photo/2018/06/18/16/05/indian-food-3482749_1280.jpg",
-    35,
-    [
+    isGlutenFree: true,
+    isLactoseFree: false,
+    isVegan: true,
+    isVegetarian: false,
+  },
+  {
+    id: "m8",
+    categoryIds: ["c8"],
+    title: "Creamy Indian Chicken Curry",
+    affordability: Affordability.Pricey,
+    complexity: Complexity.Challenging,
+    imageUrl:
+      "https://cdn.pixabay.com/photo/2018/06/18/16/05/indian-food-3482749_1280.jpg",
+    duration: 35,
+    ingredients: [
       "4 Chicken Breasts",
       "1 Onion",
       "2 Cloves of Garlic",
@@ -224,7 +232,7 @@ export const MEALS = [
       "1 Teaspoon Cayenne Pepper",
       "500ml Coconut Milk",
     ],
-    [
+    steps: [
       "Slice and fry the chicken breast",
       "Process onion, garlic and ginger into paste and sauté everything",
       "Add spices and stir fry",
@@ -232,20 +240,21 @@ export const MEALS = [
       "Add coconut milk",
       "Serve with rice",
     ],
-    true,
-    false,
-    false,
-    true,
-  ),
-  new Meal(
-    "m9",
-    ["c9"],
-    "Chocolate Souffle",
-    Affordability.Affordable,
-    Complexity.Hard,
-    "https://cdn.pixabay.com/photo/2014/08/07/21/07/souffle-412785_1280.jpg",
-    45,
-    [
+    isGlutenFree: true,
+    isLactoseFree: false,
+    isVegan: false,
+    isVegetarian: true,
+  },
+  {
+    id: "m9",
+    categoryIds: ["c9"],
+    title: "Chocolate Souffle",
+    affordability: Affordability.Affordable,
+    complexity: Complexity.Hard,
+    imageUrl:
+      "https://cdn.pixabay.com/photo/2014/08/07/21/07/souffle-412785_1280.jpg",
+    duration: 45,
+    ingredients: [
       "1 Teaspoon melted Butter",
       "2 Tablespoons white Sugar",
       "2 Ounces 70% dark Chocolate, broken into pieces",
@@ -259,7 +268,7 @@ export const MEALS = [
       "1 Pinch Cream of Tartar",
       "1 Tablespoon white Sugar",
     ],
-    [
+    steps: [
       "Preheat oven to 190°C. Line a rimmed baking sheet with parchment paper.",
       "Brush bottom and sides of 2 ramekins lightly with 1 teaspoon melted butter; cover bottom and sides right up to the rim.",
       "Add 1 tablespoon white sugar to ramekins. Rotate ramekins until sugar coats all surfaces.",
@@ -278,27 +287,28 @@ export const MEALS = [
       "Stop mixing after the egg white disappears. Divide mixture between 2 prepared ramekins. Place ramekins on prepared baking sheet.",
       "Bake in preheated oven until scuffles are puffed and have risen above the top of the rims, 12 to 15 minutes.",
     ],
-    true,
-    false,
-    true,
-    false,
-  ),
-  new Meal(
-    "m10",
-    ["c2", "c5", "c10"],
-    "Asparagus Salad with Cherry Tomatoes",
-    Affordability.Luxurious,
-    Complexity.Simple,
-    "https://cdn.pixabay.com/photo/2018/04/09/18/26/asparagus-3304997_1280.jpg",
-    30,
-    [
+    isGlutenFree: true,
+    isLactoseFree: false,
+    isVegan: true,
+    isVegetarian: false,
+  },
+  {
+    id: "m10",
+    categoryIds: ["c2", "c5", "c10"],
+    title: "Asparagus Salad with Cherry Tomatoes",
+    affordability: Affordability.Luxurious,
+    complexity: Complexity.Simple,
+    imageUrl:
+      "https://cdn.pixabay.com/photo/2018/04/09/18/26/asparagus-3304997_1280.jpg",
+    duration: 30,
+    ingredients: [
       "White and Green Asparagus",
       "30g Pine Nuts",
       "300g Cherry Tomatoes",
       "Salad",
       "Salt, Pepper and Olive Oil",
     ],
-    [
+    steps: [
       "Wash, peel and cut the asparagus",
       "Cook in salted water",
       "Salt and pepper the asparagus",
@@ -307,9 +317,9 @@ export const MEALS = [
       "Mix with asparagus, salad and dressing",
       "Serve with Baguette",
     ],
-    true,
-    true,
-    true,
-    true,
-  ),
+    isGlutenFree: true,
+    isLactoseFree: true,
+    isVegan: true,
+    isVegetarian: true,
+  },
 ];

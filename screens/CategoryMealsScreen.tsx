@@ -7,15 +7,15 @@ import {
 } from "../navigation/MealsStack/types";
 import MealList from "../components/MealList/MealList";
 import { useAppSelector } from "../store";
-import { selectFilteredMeals } from "../store/reducers/meals";
 
 const CategoryMealsScreen: FC = () => {
   const navigation = useNavigation<CategoryMealsScreenNavProp>();
   const { params } = useRoute<CategoryMealsScreenRouteProp>();
 
-  const meals = useAppSelector(selectFilteredMeals);
-  const displayedMeals = meals.filter((meal) => {
-    return meal.categoryIds.indexOf(params.category.id) >= 0;
+  const meals = useAppSelector((state) => {
+    return state.meals.meals.filter((meal) => {
+      return meal.categoryIds.indexOf(params.category.id) >= 0;
+    });
   });
 
   useLayoutEffect(() => {
@@ -24,7 +24,7 @@ const CategoryMealsScreen: FC = () => {
 
   return (
     <MealList
-      meals={displayedMeals}
+      meals={meals}
       onMealClicked={(meal) => {
         navigation.navigate("MealDetailScreen", { meal });
       }}

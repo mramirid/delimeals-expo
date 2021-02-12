@@ -10,7 +10,7 @@ import {
   TouchableNativeFeedbackProps,
 } from "react-native";
 
-import Category from "../models/Category";
+import Category from "../types/Category";
 import Fonts from "../constants/fonts";
 
 interface CategoryItemProps {

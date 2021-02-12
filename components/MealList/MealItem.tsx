@@ -12,7 +12,7 @@ import {
 
 import Fonts from "../../constants/fonts";
 import Colors from "../../constants/colors";
-import Meal from "../../models/Meal";
+import Meal, { Affordability, Complexity } from "../../types/Meal";
 import BodyText from "../Text/BodyText";
 import HeadingText from "../Text/HeadingText";
 
@@ -48,8 +48,10 @@ const MealItem: FC<MealItemProps> = ({ meal, onClick }) => {
           </View>
           <View style={{ ...styles.mealRow, ...styles.mealDetail }}>
             <BodyText>{meal.duration}m</BodyText>
-            <BodyText>{meal.upperComplexity}</BodyText>
-            <BodyText>{meal.upperAffordability}</BodyText>
+            <BodyText>{Complexity[meal.complexity].toUpperCase()}</BodyText>
+            <BodyText>
+              {Affordability[meal.affordability].toUpperCase()}
+            </BodyText>
           </View>
         </View>
       </Touchable>
