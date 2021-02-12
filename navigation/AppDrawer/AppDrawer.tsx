@@ -1,5 +1,12 @@
 import React, { FC } from "react";
-import { createDrawerNavigator } from "@react-navigation/drawer";
+import { View, StyleSheet, Text } from "react-native";
+import {
+  createDrawerNavigator,
+  DrawerContentComponentProps,
+  DrawerContentOptions,
+  DrawerContentScrollView,
+  DrawerItemList,
+} from "@react-navigation/drawer";
 import { MaterialIcons } from "@expo/vector-icons";
 
 import { AppDrawerParamList } from "./types";
@@ -7,7 +14,33 @@ import MealsFavsBottomTabs from "../MealsFavsBottomTabs/MealsFavsBottomTabs";
 import FiltersStack from "../FiltersStack/FiltersStack";
 import Colors from "../../constants/colors";
 import Fonts from "../../constants/fonts";
-import DrawerContent from "./DrawerContent";
+
+const DrawerContent: FC<DrawerContentComponentProps<DrawerContentOptions>> = (
+  props,
+) => (
+  <>
+    <View style={drawerContentStyles.header}>
+      <Text style={drawerContentStyles.title}>Delimeals</Text>
+    </View>
+    <DrawerContentScrollView {...props}>
+      <DrawerItemList {...props} />
+    </DrawerContentScrollView>
+  </>
+);
+
+const drawerContentStyles = StyleSheet.create({
+  header: {
+    backgroundColor: Colors.Primary,
+    height: 140,
+    padding: 25,
+    justifyContent: "flex-end",
+  },
+  title: {
+    fontFamily: Fonts.OpenSansBold,
+    fontSize: 24,
+    color: "white",
+  },
+});
 
 const Drawer = createDrawerNavigator<AppDrawerParamList>();
 
