@@ -6,7 +6,7 @@ import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import { FavoritesScreenNavProp } from "../navigation/FavoritesStack/types";
 import MealList from "../components/MealList/MealList";
 import AppHeaderButton from "../components/AppHeaderButton";
-import { useAppSelector } from "../store";
+import { useAppSelector } from "../store/types";
 import { selectFavoriteMeals } from "../store/reducers/meals";
 import BodyText from "../components/Text/BodyText";
 

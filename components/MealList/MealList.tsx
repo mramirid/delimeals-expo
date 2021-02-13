@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { StyleSheet, FlatList, View } from "react-native";
 
-import Meal from "../../types/Meal";
+import Meal from "../../types/meal";
 import MealItem from "./MealItem";
 
 interface MealListProps {

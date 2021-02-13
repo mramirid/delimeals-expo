@@ -3,8 +3,8 @@ import { DrawerNavigationProp } from "@react-navigation/drawer";
 import { CompositeNavigationProp, RouteProp } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 
-import Category from "../../types/Category";
-import Meal from "../../types/Meal";
+import Category from "../../types/category";
+import Meal from "../../types/meal";
 import { AppDrawerParamList } from "../AppDrawer/types";
 import { MealsFavsBottomTabsParamList } from "../MealsFavsBottomTabs/types";
 

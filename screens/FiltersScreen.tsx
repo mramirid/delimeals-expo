@@ -1,5 +1,5 @@
 import React, { FC, useLayoutEffect, useState } from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, ToastAndroid } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 
@@ -7,16 +7,13 @@ import AppHeaderButton from "../components/AppHeaderButton";
 import HeadingText from "../components/Text/HeadingText";
 import { FiltersScreenNavProp } from "../navigation/FiltersStack/types";
 import AppSwitch from "../components/AppSwitch";
-
-interface Filters {
-  isGlutenFree: boolean;
-  isLactoseFree: boolean;
-  isVegan: boolean;
-  isVegetarian: boolean;
-  [filter: string]: boolean;
-}
+import Filters from "../types/filters";
+import { useAppDispatch } from "../store/types";
+import { applyFilters } from "../store/reducers/meals";
 
 const FiltersScreen: FC = () => {
+  const dispatch = useAppDispatch();
+
   const navigation = useNavigation<FiltersScreenNavProp>();
   const [filters, setFilters] = useState<Filters>({
     isGlutenFree: false,
@@ -42,13 +39,15 @@ const FiltersScreen: FC = () => {
           <Item
             title="Save"
             iconName="save"
-            // eslint-disable-next-line no-console
-            onPress={() => console.log(filters)}
+            onPress={() => {
+              dispatch(applyFilters(filters));
+              ToastAndroid.show("Filters applied", ToastAndroid.SHORT);
+            }}
           />
         </HeaderButtons>
       ),
     });
-  }, [filters, navigation]);
+  }, [dispatch, filters, navigation]);
 
   return (
     <View style={styles.screen}>

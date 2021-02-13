@@ -1,4 +1,4 @@
-import Meal, { Affordability, Complexity } from "../types/Meal";
+import Meal, { Affordability, Complexity } from "../types/meal";
 
 export const MEALS: Meal[] = [
   {

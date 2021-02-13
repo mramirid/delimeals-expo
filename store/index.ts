@@ -7,5 +7,4 @@ const store = configureStore({
   devTools: process.env.NODE_ENV === "development",
 });
 
-export * from "./types";
 export default store;

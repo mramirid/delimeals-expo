@@ -12,7 +12,7 @@ import {
 
 import Fonts from "../../constants/fonts";
 import Colors from "../../constants/colors";
-import Meal, { Affordability, Complexity } from "../../types/Meal";
+import Meal, { Affordability, Complexity } from "../../types/meal";
 import BodyText from "../Text/BodyText";
 import HeadingText from "../Text/HeadingText";
 

@@ -3,7 +3,7 @@ import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
 import { DrawerNavigationProp } from "@react-navigation/drawer";
 import { StackNavigationProp } from "@react-navigation/stack";
 
-import Meal from "../../types/Meal";
+import Meal from "../../types/meal";
 import { AppDrawerParamList } from "../AppDrawer/types";
 import { MealsFavsBottomTabsParamList } from "../MealsFavsBottomTabs/types";
 

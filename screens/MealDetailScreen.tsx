@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useLayoutEffect, useMemo } from "react";
+import React, { FC, useLayoutEffect, useMemo } from "react";
 import { View, Text, StyleSheet, ScrollView, Image } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
@@ -11,8 +11,8 @@ import AppHeaderButton from "../components/AppHeaderButton";
 import BodyText from "../components/Text/BodyText";
 import Colors from "../constants/colors";
 import Fonts from "../constants/fonts";
-import { Affordability, Complexity } from "../types/Meal";
-import { useAppDispatch, useAppSelector } from "../store";
+import { Affordability, Complexity } from "../types/meal";
+import { useAppDispatch, useAppSelector } from "../store/types";
 import { toggleFavorite } from "../store/reducers/meals";
 
 const MealDetailScreen: FC = () => {
@@ -27,11 +27,6 @@ const MealDetailScreen: FC = () => {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerTitle: params.meal.title,
-    });
-  }, [navigation, params.meal.title]);
-
-  useEffect(() => {
-    navigation.setOptions({
       headerRight: () => (
         <HeaderButtons HeaderButtonComponent={AppHeaderButton}>
           <Item
